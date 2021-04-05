@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  versioning-api:
+    build: .
+    container_name: versioning-api
+    image: docker-stack.j.thusira.com/versioning-api:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - VERSIONING_DB_HOST=versioningdb
+      - VERSIONING_DB_PORT=27017
+      - VERSIONING_DB_NAME=cicd
+      - VERSIONING_DB_USERNAME=cicdUser
+      - VERSIONING_DB_PASSWORD=welcome1!
+    depends_on:
+      - versioningdb
+
+  versioningdb:
+    image: mongo:3.4.3
+    container_name: versioningdb
+    volumes:
+      - ./volumes/db:/data/db
+    ports:
+     - "27017:27017"

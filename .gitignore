@@ -1,0 +1,14 @@
+#public/lib
+public-build
+target
+bower_components/
+.bower-cache/
+.bower-registry/
+node_modules/
+.nodemonignore
+.grunt
+_SpecRunner.html
+local.json
+spec/config-gen.js
+.tern-*
+/.bower-tmp/
